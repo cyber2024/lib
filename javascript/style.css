@@ -1,0 +1,12 @@
+.list-item{
+  background-color: #2d2;
+  border-radius: 5px;
+  padding: 5px;
+  width: 100px;
+}
+.list-item>.close{
+  position: relative;
+  right: 0;
+  border: 1px solid black;
+  /* margin: 0 0 0 5px; */
+}
