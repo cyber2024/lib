@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html>
   <head>
     <meta charset="utf-8">
@@ -6,21 +6,30 @@
     <title>Library</title>
   </head>
   <body>
-    <h1>Library</h1>
-    <div class="container">
-        <!-- js will load data here -->
-        <div class="wrapper">
-          <div class="input-row">
-            <input type="text" class="input-person" value="" placeholder="Add a name to the list">
-            <button class="btn-add-person">Add</button>
+      <h1>Library</h1>
+      <div id="stats-module"></div>
+      <script id="stats-template" type="text/template">
+          <h3>Stats</h3>
+          <span>Population: </span>
+          <span class="population">~[people]~</span>
+          <br />
+          <span>Deaths: </span><span class="deaths">~[deaths]~</span>
+      </script>
+      <div class="container container-people-module">
+          <h2>People Module</h2>
+          <!-- js will load data here -->
+          <div class="people-wrapper">
+              <div class="input-row">
+                  <input type="text" class="input-person" value="" placeholder="Add a name to the list">
+                  <button class="btn-add-person">Add</button>
+              </div>
+              <ul class="list"></ul>
           </div>
-          <ul class="list">
-            <li class="list-item"><span class='text'>Item</span><span class="close">X</button>  </li>
-          </ul>
-        </div>
-    </div>
+      </div>
 
-  <script src="module-structure.js" charset="utf-8"></script>
-  <script src="events.js" charset="utf-8"></script>
+      <script src="soap.js" charset="utf-8"></script>   
+      <script src="events.js" charset="utf-8"></script>
+      <script src="stats.js" charset="utf-8"></script>
+      <script src="module-structure.js" charset="utf-8"></script>
   </body>
 </html>
