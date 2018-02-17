@@ -3,18 +3,19 @@ let Soap = (function () {
     function _generateRegexp(key) {
         return /~\[${key}\]~/g;
     }
-    function render(str, object) {
-        console.log(object)
+    function _matchKeys(string) {
         const rgx = /~\[(.*)\]~/g;
-        const keys = str.matchAll(rgx);
-        console.log(keys)
-        let result = str;
-        if (keys.length > 1) {
-            for (let i = 1; i < keys.length; i++) {
-                console.log(keys[i], object[keys[i]])
-                result = result.replace('~\['+keys[i]+'\]~', object[keys[i]]);
-            }
+        let keys = [];
+        for (let key = rgx.exec(string) ; key != null; key = rgx.exec(string)) {
+            keys.push(key[1]);
         }
+        return keys;
+    }
+    function render(str, object) {
+        let result = str;
+        _matchKeys(str).forEach((key) => {
+            result = result.replace('~\[' + key + '\]~', object[key]);
+        });
         return result;
     }
     return {

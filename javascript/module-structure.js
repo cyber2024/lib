@@ -3,8 +3,7 @@ var people = (function () {
         throw "no event system in place. Need an 'events' manager with 'on' and 'emit' functions";
     }
 
-    let people = ["will", "steve"];
-    events.emit('PEOPLE_CHANGED', people);
+    let people = [];
 
     //cache dom
     let template = document.querySelector('script');
@@ -18,6 +17,10 @@ var people = (function () {
     list.addEventListener('click', (e) => {
         if (e.target.classList.contains('close')) deletePerson(e);
     });
+
+    //initiate
+    addPerson('Will');
+    addPerson('Beth');
 
     _render();
 
